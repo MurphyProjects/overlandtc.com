@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Murphy Projects is a Canadian holding company building ventures in education, publishing, retail, and digital products. Home of Retriever Academy, Overland Trading Co., Lab Life Shop, and Colin Murphy Education Services." />
+  <title>Murphy Projects — 17606656 Canada Inc.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #4f0419;
+      --navy-mid: #3d0314;
+      --navy-light: #5c0a20;
+      --slate: #6b1228;
+      --gold: #c0c0c0;
+      --gold-light: #e8e8e8;
+      --off-white: #f2eff0;
+      --muted: #9a8a8a;
+      --border: rgba(192,192,192,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--navy);
+      color: var(--off-white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* Grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 4rem;
+      border-bottom: 1px solid var(--border);
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
+
+    .logo-m {
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+
+    .logo-m::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 1px solid rgba(201,168,76,0.25);
+    }
+
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--off-white);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      margin-top: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 8rem 4rem 6rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.9s 0.2s ease both;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--off-white);
+      max-width: 780px;
+      animation: fadeUp 0.9s 0.35s ease both;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      margin-top: 2.5rem;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.75;
+      font-weight: 300;
+      animation: fadeUp 0.9s 0.5s ease both;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 3rem;
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: background 0.25s, color 0.25s;
+      animation: fadeUp 0.9s 0.65s ease both;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .hero-cta .arrow {
+      transition: transform 0.2s;
+    }
+
+    .hero-cta:hover .arrow { transform: translateX(4px); }
+
+    .hero-rule {
+      position: absolute;
+      right: 4rem;
+      top: 8rem;
+      width: 1px;
+      height: 160px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: fadeUp 1.2s 0.8s ease both;
+    }
+
+    .hero-stat {
+      position: absolute;
+      right: 3rem;
+      top: calc(8rem + 180px);
+      text-align: right;
+      animation: fadeUp 0.9s 0.9s ease both;
+    }
+
+    .hero-stat .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--off-white);
+      line-height: 1;
+    }
+
+    .hero-stat .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-divider::before, .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section-divider span {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    /* ── VENTURES ── */
+    .ventures {
+      padding: 5rem 4rem 7rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .ventures-header {
+      margin-bottom: 4rem;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .ventures-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+    }
+
+    .ventures-header p {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 440px;
+      line-height: 1.7;
+    }
+
+    /* Editorial grid */
+    .ventures-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1.5px;
+      background: var(--border);
+    }
+
+    .venture-card {
+      background: var(--navy-mid);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: background 0.3s;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .venture-card:nth-child(1) { animation-delay: 0.15s; }
+    .venture-card:nth-child(2) { animation-delay: 0.25s; grid-row: span 2; }
+    .venture-card:nth-child(3) { animation-delay: 0.35s; }
+    .venture-card:nth-child(4) { animation-delay: 0.45s; }
+    .venture-card:nth-child(5) { animation-delay: 0.55s; }
+
+    .venture-card:hover { background: var(--navy-light); }
+
+    .venture-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--gold);
+      transition: height 0.4s ease;
+    }
+
+    .venture-card:hover::before { height: 100%; }
+
+    .venture-index {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .venture-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .venture-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .venture-tagline {
+      font-size: 0.82rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .venture-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .venture-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.8rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--off-white);
+      text-decoration: none;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.3s, transform 0.3s, color 0.2s;
+    }
+
+    .venture-card:hover .venture-link {
+      opacity: 1;
+      transform: translateY(0);
+      color: var(--gold);
+    }
+
+    /* Large featured card */
+    .venture-card.featured .venture-name {
+      font-size: 2.2rem;
+    }
+
+    .venture-card.featured .venture-desc {
+      font-size: 0.92rem;
+    }
+
+    /* ── ABOUT STRIP ── */
+    .about-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .about-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .about-left h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .about-right p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-right p strong {
+      color: var(--off-white);
+      font-weight: 400;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-left {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-left strong {
+      color: var(--off-white);
+      font-weight: 400;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+    }
+
+    .footer-right {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .footer-right a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      margin-left: 2rem;
+    }
+
+    .footer-right a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.5rem 2rem; }
+      .nav-links { display: none; }
+      .hero { padding: 5rem 2rem 4rem; }
+      .hero-rule, .hero-stat { display: none; }
+      .ventures { padding: 4rem 2rem 5rem; }
+      .ventures-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5px;
+      }
+      .venture-card:nth-child(2) { grid-row: auto; }
+      .about-strip {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 4rem 2rem;
+      }
+      .section-divider { padding: 0 2rem; }
+      footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-right a { margin: 0 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo-mark">
+      <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAH0AfQDASIAAhEBAxEB/8QAHQABAQABBQEBAAAAAAAAAAAAAAEHAgQFBggDCf/EAFQQAAIBAwIDAwYJBgoIAwkAAAABAgMEBQYREiExB0FRCBMiYXGxFDI1QnOBkaGyFSMzUmNyFiUmNDZidIKiwRdDRFNUhNHSJGSSJzdFRlaUs8Lh/8QAGgEBAQEAAwEAAAAAAAAAAAAAAAECAwQFBv/EADIRAQACAgEDAwEGBQQDAAAAAAABAgMRBBIhMQUyQRMGIjRhcYEVI1GRwTOh4fAkQrH/2gAMAwEAAhEDEQA/APL6KRIph9wLcFAVAUEEBQUCFAAhQAIUAQFBAIUFAAE0ICgAACgAAAAIBCgCDmUATmCgCAoGhAUAQFAEKAUCFBBCgACFAEKANAACgAAAAIICgohQAAACo1zBQRqERSIpWAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQZVpRSIppkAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQARQIwGDLSIpEU0yAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBQZVpRSIppkAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAwZVEUiKaZAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEYQFAIAG4ZEEXmUgCqCACgAAAAAAAAEAoAAAAAAAAAAAAAAAAAAAAAAADAYMqiKRFNMgACgAAAAAAAAAAAAAAAAAAAAACFAADuAEDD5dfvBuIUG7xeNyGUuY2uNsLq9uJc40rejKpN/UluZI0z2DdouXrUXdYiOItaseJ3F7UUVFeDgm5p+rhJHlw35OGkbtZixLmb7C4nI5q/p2OKsbi9uaj2jSo03KX2I9RaQ8m7TWO+D3GpL64y1XhXnbem/N0VP2r0mvsMp4rC4TTltKWOxOOw1DZRm6dONNtJcnKXf9Zrpebm9Xxx2xxt5v0R5POUv7enf6nyNPHW7cJK3otVKs48m1v8WD23Xe010Ou6+7P8LZ5u/ssPXrWcraq4RhcT44Nd3pJb79DO2ue2PSmLpXNnjalTNX1KKcKdltKkpb7cM59F3+swDe6+o5HO3dfJ2btq1epxvglxRjy5LmIj+roWz8y+skRP+HQ8pib/ABzi7ii/Nz+JUg+KMl7TYb8jLdO4oXFKatZxnRqQ9NPZqS8Njjr/AE5hL2KkrKVrU5Ju3lstvY+RdO1g9W+MtdMa7lOz5LROQovisa1O6i99oSfBNeHXkzhsnhcvjJqF/j7ig5LdNw3T+tE09THy8OTxZsWN2ad+exdyOxuF3G5AgLuUiAUABAKCFFAAAAAAAAAAAAAAAAAAAAAUAGVaUUiKaQAAAAAAAAAAAAAAAAAAAAEGQ8F2KdpubxFrlsXpS5uLK6pqrQqqtSSnBrdPZyTN6/J+7Xf/AKMul/zFH/vPY3k91P8A2K6Ubf8A8Npc/qGT7auzLFZCvYZHVNKlc0JunVpq0rScZJ81ygzWnzt/U8/1JrWPDx7T8njten/8pVY/vXVFf/ucjj/Jm7WbmS87iLKzi38avfUuX1RbZ6nl5QHZLF7fwpm/Wsdctf8A4z4XXlDdlVGDlTzt3cv9Wlja+/8AiihpP4hyp8V/2efKXkndokobzy2mqb/Vlc1W/upnNYTyRszVtnLN6ss7Ss+kLS2lcR/9TcPcZOq+U92fwntTxOqK23JSjYwSf2z3OLzPlR4mPLD6Nyt4tut1c07fb6lxDs3HI51+1az/AGbOx8k/RdK1pxyOb1FcV4fHnQdKlCf93hk19p3TBdiHZpg4OVlpa1uqrSXFft1+a7+fJP2GIs15SOuruUvybgcDY0n8XzlSrUqx+tNRf2HTst2rdpeWtJ2t5rK6pUpvifwOhC2nH1KceexnrrDcenepZvdEvX9yrTE2PnJQtLShQp9Uo0oU4+3uRjPWPbboXAVlQp3tTN3cluqWKSrpe2e6S+08s3qq3txUuMhfZHIVai2qTu7udRzXr57M0U6VOktqUI014QjsZ+rDv4PsxkvqcltMv57t/wBT3VWosLprH46lu1TqXdw6lXh8XGPJP1bmLdTZrUGqbt19T569yaTTjbyfmqENvCnHlvz6mz2DMWyWl7nH9C4vHnfT1T+bTRpU6UFCjTjTiuW0VsjpWV55Gvvz9M7ujpGU+UK/7zGHe09TrEY6xH9XztLq5tannLavUpT8Yy2OwY/WGQoR4LpQuF+tJc/uOtDmuh2IeBl42PL7oZJxursXX2VanUo7+pTX+T+47TiL61rxasbqjPdc4xm0/sfMwcj60bivQTVGtOCfdvy+wbdG/pdZ9ks+1cLj8jFLJYujd8uUp0mmvY47P7zYT7LtNX1fjSurOPdC2q7r/Gpe8xTitXZzHTToXtX17zlz+rfb7jtWL7Wsxby3uqdOvFLbhqR4vvXCHDHG5eL2WdhuuxS1q1W7HP1qFPujXt1N/apL3HF3HYpno1eG3yuPqU/15qcfuSZzGL7ZrNw2vMbTjL9aNRw+7hl7zsdp2saQqUk61evTnt0iotfe0RqOTzqeWPq/Ytqen+jv8RWfhGrOP4oI4247KNZ0XysrWovGF3T2+9mVl2o6OnJRV7cR9bpR/wApm5j2g6Tqx3jlJP1eZYn9F/iHLjzH+zDEuzTWMXs8XD/7ml/3Gh9m+skm/wAkrkv+Ipf9xmeetNMTlw/DqqlLlH8z19XU3krqlOj5ym94uLaexNMz6ryInUw8v1YypVp0ZpKcJOMlvvs09mRGq/f8a3f08/xM0h9Fiv11iVABG5AAUAAAAAAAAAAAAAAABF2BAZaRFIimmQABQAAAAAAAAAAAAAAAAj6FRH0IT4fod5PlSP8AoZ0tCT5fk2iv8J5F1xJ1NcZ2pLrLIVvxM9T9hFfh7IdMJd2No/hPLOtHvrHMvxvar/xMZO1Xjegx1c+37uI2XgNl4IrIdZ950xHwFIFzRGtbCk3CYXSsgZBDO1NL2K2aWwkyLqdJyfyhW/fZ3VPmdKyXyhW/eZzYfLy/U/ZX9W3AQOZ4oRlDCoAQBst+aDUSgG0SRd3tsuQA+UiG4xk6n5Stm5ye1WPV+tHoqhL/AMGl/UPOuMW+Stl+1j+JHoKE9rb+6X4eT6r3tV54v/la72/39T8TNUTRe/Kt19PP8TNcehmXs8X2QMFZCOxIACoAAKAAAAAAAAAAAAAADBFRFIilZAAFAAAAAAAAAAAAAAAACPoUjIT4e6exGvw9kunFv0x9Jf4TzPqxuWqcpJ993U/Ez0N2O1+Dsq0+vCwpfgPPOq/6TZN+N1U/EyZfbDx/QPx1v3cYwGQ6770b5GQdFdkeqtXYOlmMRXxjoVN0o1azU1s9ua2MeSZ6j8nGtO27O7CtCTX5yba8eZyY6xae7x/Wudl4fHi+Lztjqfk89ofzViZf80/+06X2jaA1NoKVtLUFC3jTud1TqUKvHHddz5LY914+8pXdDzkHzivTXgdP7U9NWetdLXeEuowU6tN+YqSW/m6nzZfUbnHD5vB9o+T9WJya08MxqKXRlcj4Zaxv8BnLnDZOjOldWtR0pxktt9n8Zep9TXCSkjhmNPs8OeuWvVDW2aXIjZGRybVM6Zkv5/W/eZ3JM6bkv59W/eZy4vLzPUvZX9W3RSIpzPHR9R7QVBW8wuNvMvlLbGWNGVS6uasaVKKT5yk9kZHuewTXlvXnQrSxsalOXDKLrS33+wzZ5GnZSrOx/h7nLZq6uVtjqc1zhD/ee193qMt9oFjTtco72TUKNWDnKT6JrruWI/q8fk+oWrfpx+HjOp2Ha2p0p1ak8b5unFym/PvkvHoY0vKTt7urbTnGcqU3Byj0e3geqdaald/OpZ2U5Kyhvu+jqe31HlTKTby12/GtL3jTk4fMvltMXaQaEykentu8Rzylr9ND8SM7up+ZfsMEYf5VtfpYfiRnBy/Nv2FeR6n5qwPdfKd19NP8TPpHofO6+Urn6af4mfSJLPa4vshSBgy7MgAKgAAAAAAAIAAKAAAAAKCMEVEUiKVkAAUAAAAAAAAAAAAAAAANLNRpIkvYnZRWcezLBx36WVL8CMGanT/hDkN++5n7zNPZbu+znBf2Kl+Ewxqr+kN//aJ+8ZfY8f0H8fb93Fsj6FZpZ1n3sy0TZ6k8naPH2YWT8Kk1955am+p6v8m6lxdltm/2lT3nNh8vnPtN+Fr+rJOFc4XsacZNKotmfe946daVOo+cfvNeNpKN9TfgbzM0PPUvPRXpxXRd6Ow+Eh508qjQX5ZxsNYYunOWSs4cNzTjHd16SfxvbHmebbG4hOmpRe6Z73udqkXCcOKMk4yi+jT5NHjjtt0TLROrPhNpBRxOQnN2qT+I1tvF/acOSu31HoXP1P0b/s61xEcj40aqlH1mts4H1vU1xfM6hkf59W/eZ22LOo5H+fVv3mcmLy871Gfu1fAIDvOZ5UKlzMmeTz2dVu0HXltbVaEnirSSrX09vR4V0h7W/uOgYPG3eYy1ri7CjKtdXVWNKlTj1lJs/RDsN0BY9nmiLXFUowneTSqXddLnUqPr9S6FiNulz+TGGnTHmXfbK3o2lnStrenGnSpQUIRitlFLojA/lC6qo3t9RwmPrNxtm/PyjLk2/mmR+1rV1PTGnpRpVF8Pu06dvFdV4y9iPMF/VlVm6k25Sk222+bZXzrazl+bl+6zz1kn/G939NL3noGpL0JexnnzJfLF39NL3k+He4U6uQZ9O4+cDX3Ee7VvMNzy1r9LD8SM3dab9hg/DP8Aja1+lj+JGcoR/NN+osPL9S91WB7v5Ruvp5/iZ9Imi8+U7tft6n4mao9xJe3xvZDV3kDBl2ZAAVAAAAAAAAQAAAABQAAGAwZVEUiKaZAAFAAAAAAAAAAAAAAAADS+hqNJJSfD2D2R0ePs1wEuf8xp/hMI6s5ahvl+3l7z0F2KUOPst09LbrY0/cef9b+jqrJR7lczX3jL7Xj+hdufb93ENmlsjZpbOtD7uZ7JUfU9deTLBS7J7F/tanvPIc3zZ7C8l+HF2SWT/b1fecuHy+c+0n4av6sl20VG5g9+hvas+XqOu65q1bTSeQuaM5QqUqTnFx5NNGz0NqijqXTlG+3Ua1JebuI+E0dmXwzVqCi7a6dak2qc+7wZ0LtL05aaw0rcYi5jGM3FzpVtt5U59U0ZNvoQubeVKfR9PUzpN95y3rTpy5NcmZlvHe2O8Wq8U3VpeYnI1sbfwnRubeXBOEls/UfWMuJbmbe3vRUMtj5alx8X+ULSG1aCX6Wkt237V7jA1pcKcVz+s4L1feem82vIx7ny30WdTv3ve1f3mdpi9zqt9/PKn7zLi8uT1H21fIIGSvJ77PamvtdUKNzQlLD2TVa/qdzS+LT38ZP7tzleRkyRjpNpZk8jbswlQX8Pc3atTqRcMZCa6RfWpt6+i9R6cyWStsZjq19dT4KFGDlJs+NjTo2dnRtLenCnTpwUKcYrZRSXJbGFu27WTv73+D1jU2tqEt7iUZcpy/V9iNPmc2W2bJ1S6XrXUVzqXUNxk6/Eoz9GlBvlCC6JHXLt7dT6x3k+XNvob/UOP+BYC0ryS469V/YkHB8uv1JehL2MwDkvli7+ml7zPE5fm5b9eFmBsj8r3f0sveJ8O9wveQNZogazL3Kz2bjFcspa/Sx96M/29LitFLxjuef8byyVv9JH3o9H42jxYunLxiyw8v1Ke9XnC++Vbz+0VPxssehL75Uu/wC0VPxssehmXu8X2Qr6gPqCOxIACoAAKAAAAAAACAACgAAMFBlWlFIimmQABQAAAAAAAAAAAAAAAEIUhCXursHt/OdkOmZbdbCn7jzVrxpasya8Lqp+JnqnydqHF2N6WbX+ww9x5W7RPR1tl4rorup+Jky+14vof4637uDbNDYbNLZwPud9kk+p7J8lnb/RBZb/APEVfeeNZHsTyXanD2Q2S/b1fecmL3PnftHP/jV/V3PtLnw6Hyr3/wBQzz52e6mq6b1BCo5N2td+brRb5JN/G9qM89p9ZfwHyvP/AFDPLdWXJ8zsS+Jh6sp3kK1KFajNTpzjxRa5rbuOI1BRdxDzsEvOwX2ow12Kdo6epbzROVufTgoysG+jjtzhv496My1a3PfruQmNeXUK84TjKE1upLaSl7jzR2u6UlpfUbvLSk44y9k5Unt6MJttun7F3HprUNLzNy60ElCfXbuZ03WuJtdRYG4xl0l6cW6U2t3CfdJC0RLu8Dlzx82/h5ytqnGdcvf53U/eZz1W2usVkamPvYebr0HwTXj4fccBePe5qPu4mzjpGpfX8vLGTHWYbnB4u9zOWtcVjqLr3d1UVKlTXzm/8j3z2N6KsNA6MtsRbxUrmaVW7q99Sq0t37O5epGFvJO7O/g1utb5ih+drxax1OUedOHzqj/eXJer2noe+yNCxsat5cVFCjSi5yb8PA5Y7Pk/UOT9S3RXxDje0rVq03gZujNO+uU4W8d+njL6jzpUqSqTlOUnKcm5Sk+rb6s5PWWoLnUWaq39ZtU/i0ae/wASHcjpusM7RwOIncze9ap6NGPe34+xEdCK77O54O1VSTrS6J7JHN9qlGNvgMTFcnu9/sOH7MqtXIaexFevLjqVqcZSlttvuzne2uUVjsfFd02vuLDMx3YvqS9B+xmDMhzy119LL3mbZz3hL2MwjffKl19LL3iXd4XvWBrNEDUZe3WezcY75Rt/pI+9HpzCU98HRbfzNzzFjvlG3+kj70encG1+QKHPrTK8v1L/ANXmTIcsveL/AMxU/Gyx6Gm9e+Uu3+3qfiZqiSXvcX2Qr6kKQy7EqACgAAgAAAACgAAAAAAEAABlqERSIppgAAUAAAAAAAAAAAAAAQEAhSAl+hfk3xT7FdKy/wDIQ/zPJHaO/wCXOY/ttX8TPWvk6VFDsU0svCwp+88jdpMk9eZvb/jav42MnteN6H+Nv+7g2zS2adybo677TfYmz135MtTh7JbJft6vvPIM2esfJtq7dlVkn/vqnvOXH5fP/aL8NH6u5dptXfRGV5/7PI8xTnvE9G9pNX+RmUS77dnmpz5HO+KYz1Le3WO7QKmQsqsqVzbzp1Kc49U0lses+zPW1trHTVHJ0qkY3UIqF3Q35wn4+x9TyLrPnq26fqj7jn+y3VdbSGpKd45T+BV35u5gujj3PbxRnqe3bhfW40Xr5iHri+4LmlKnN8pdPUdMveOjUdOfJxOwW+QoXllTubapGrRqxUoSi+TXc0zjcxT8/Qcor04c16zXl4tvO2Ju2DTivsf+W7OKjd2cW6u3Ljprv9q6+zc6R2L6Hra51pRtq1OX5NtWq9/Pucd+UN/GT5ezd9xmupOM4uMoqSaaakuT9R3bsqw+JwGlIQxdsqLua1WvW8XJza29iSSXgTXd3ac+9cXQ7vaebtrenQpwjCnTjGEIxWySS2SS9Ri/th1M7mvHBWdVOjSalcSi+Upd0fqOya81OsDi+Ki07yvuqC/V8ZfUYSqVJ1JynOTlOTcm33t9Sy6MfmValKlSnXr1FTpU4uU5N8kkYO1pnauoMtUr7tUItxow8Inae1bPqTWEtau/zrhp/ZEx/CPLcjv8bBMx1S9ZdjVNPTeLk+UaVrDZes3PbNV4rGw59Zy9xOypKhozGvvlbxbNl2vVeKysOfz5e4vy6V/MseSnyfsMM33ypc/Sy95l+UvRfsMP3nync/Sy94l2+F7mqJSIpl7MNxjflG3+kj70Z8qZqnY6ft6FNqVy48kvm+tmA8X8o230sfejKN035+bb7+RYebz43NWLK3O9r+Lqy/Ez6x6Hyr/KFx9NP8TPrEkvd4vshX1AfUhl2pUAFQAAQAAUAAAAAAAACAXUBsCgyrSikRTTIAAoAAAAAAAAAAAAAEZQFREKRkSXvryfK6fY1pqMWuVjTX3nlLtFW2tsxxdXeVfxs9B+TDlJ3XZDjO5W8qlDd/1ZMwp25438na+yHD8WrUdWLffxPcW9rw/SLdHPmJ+dukNmndkkzS3zOB9pMpN8z1N5O1bh7LrNb9K1T3nleXU9M9gNbh7NbVb/AOuqe85Mfl4P2g78aP1dv7Ra++j8ot+XmGedJS5Gd+0Kt/JLJc/9SzALl6zn+HxUMdate+qrp/u+4+NOO8dvE16re+qLr+77iUfio4rvs/Tv9Ksfkyt2G6vnQqS01f1/zc1vaSm/ivviZcqVub2fNPZ+pnk/edOcatKThUg1KElycWujM/aC1XDUuGjUnNK9t4qFxDfm3tznt4M1jt208j1bg/Tt9SviXJ5aHmrlVofo6j5rwZ3bSt3RttKUbmvUVOlSjUnOT7kps6fdpV6Uqb7+nqZwuoM3WeFtcDTUqcKW87h/rtybil6u/wBpt4jZ6pzdbO5mpe1N40vi0KbfxILp/wBfrOp6tztHBYepctxlcTXDQpt/Gfe/YjkK1anRpOtWmoU4JylJ9yRhnVmaqZ3LyuN5eYp7xpRfct+4S5sOL6lnFynUuK061abnUm+KTfNtn0Udokpx25H0l8V+wzMvdx0isaertCVVDR+KSfP4LD3HEdqdTis7J7/Pl7jcaQq8Gl8Wt/8AZYe44vtIqcVnaeqb9xp89f3S6VKe0X7DEt38pXH0sveZUm94v2GKrv5Rr/SP3iXb4Xuaomrc0RNRl68S3eGj5zLWkF86tBfejKF6mripDbmpNGPtC2Tv9WY+3U+D86p77b/F57fcZBvqinWq1vFykWrzefP3qwxXWe9/cP8Aay97PrHobaD4q05frSb+83K6El9BxY1SIUhSGXZlQQFRQAAAAAAAAAAAAAIBAAARpEUiKVgAAUAAAAAAAAAAAAAAABCNci94JJL0H5JGo/NWOYwE6k3KMlXpRm/QSfXb17nI+UbjqlxUtswoqUHSdKbUekk+X3GD+zHPz01rnH5NzUaDn5qvu+XBLk39XU9R6ztI57S11bU5ccpQVSi9/nJcvuLMbh85yt8Xm1yw8vtmnfma72jUtrupRqQ4JRk1wt8z4tnBMPtaZIvWLQ1SZ6K7DK3D2fWsHy/Oza+085SfIyf2d68eP0tTwltStVcUZSlxznu5bvuRyYvLx/Xotbi9o+WWde1v5J5H6IwS5rbqc/ndR5bKUHSurqTpPrCC4V9e3X6zrM31Od8VV0TU731NcteEfcWl8U+eo3/KO5/u+410n6Jw3fZenf6VWuXNbHIaTzdfTWcp5C3b803w3EF8+DfNHHs+dRbpmYnTvZsdctJrb5ej7W9o3lpRuraanRrQU6bXg1y+s6xnZb5Oq1z2jFfcjp/ZTqR21f8Ag/d1FGlUblbSa6SfWPsfU5DtDz0MRaXFxuncVZcNGD72kk/+pzRO3xHI41sOSaS6j2n6gUv4ktJ9XxXDjy/unRKMElyNEeOrUlUqyc6k3xSk31Z94LZB6XGw9FYaoll8V+wppl8V+wjvPSemKu2nMct+ltD3HG6+qcVpbc/nv3H101Ph09YLwt4e46d2kZyUsjSsLWo07dN1Hty3fcah8xf3S+EpLZ+wxbd/KFf6R+87fLNVaVJyrShwpbb7dTplWp526qVV0lJsS7nDiep9I9CkiaknJ7Jbsy9Xw7j2XUZLJXOT4ZJWdL0JL/eT9FL7N39Ry+orr4Jhrmru0+Fwi1+s+RusNYww2mLW0e6urmSuLndbOLa9GP1Ln9Z1TXV+pqhYUp7pSdSol3Pu/wAzXiHmX/n8mIjxDrluu/1m5R8aS225H2MPp8UagA7ykckgAKAAAAEAoAAAAAAAAAAAMEaRFIilYAAFAAAAAAAAAAAAAAAAQAEEmuJbM9DdhutFl8KsReVG8hZw2W751ILv5nnruOQ0zmr3T2boZOxqOFSD2kv1o784/WWHQ9Q4sZ8f5wyv2tYGUb2eWtaSjSqP0ue7TMcS6md7PJ4/VWAV1ScJULmO1SL58D8GvUzEOrsHVxF9NLedCT3jJIl433hx+j86a/yMnn4cHJm2nUq0qiq0qkoVI81JPofaTPlUjujjh7uSOuunZMJn1ewjb3coxuUuT7p//wBOQqyXM6DVpNNSi9mujOZw2ZlNK2vJemuUZvvOWtnynP8ATppPXjjs4fUL/lHc/wB33H0ov0T5Z3Z5+u990+H3Gqk3sS/d7Hp/bDD6tmlsm73JuYejtpbnCcatKThOLTjKL5pmx1JlL3M5D4ReT4nCEYJLotl1OQXNHD3Efz8/abq8znYa21Z8Kcdj7RREimnViuoVkm/RfsBJv0X7Au2crTIQstK2t1N8oWsOFeMtuRi7K3iUql3czblUbe3e2c3q3M0bXCYuyUuJwtYScU+ra5GPbuvVuq3nKsvYl0RqHg0wWveZ+FvLqpd1eKT2ivix8DRCOz3JCJ9UiPTx44rHZV3HatBYiN3eTyN1HeytGnL+vN9InC4DFXOXyMLO2WzfOc30px72zItVWtpZ0sdj4qFtQWzl31Zd82NOPlZ+iuo8vnlshGjTrXdxPonJrfr6kY2rV6t3d1LmrvxVJN8+5eByWqckry5VrRlvQpPm/wBaRx1KO2xJcvp3GmI658vpFbIqAI96sahUACCgAoAAAQoAAAAAAAAAAAEGwLuCNNKKRFKwAAKAAAAAAAAAAAAAAAAEZQCGkNcighMbh2DQmqbnTWRbk5Tsq3o1YeHrXrMyZC1xmbxNOtb3KrUa0eKE+vCzzzJHZtB6tq6fru1ueKrYVHzjvzp+tGol4nP4Mz/Mx+W41Fh7jFXcoTTnT39GfcziGzL15Sx+dxcZ0pxrUKq3hNL4pjbUGEuMZWk+Fypd0tiWr8w7Pp/qcZP5eXtaHDT6G2qw36G4bNMkYh61oiY02slUqVfO1ZcU9tt/Uj7w5IbIFceOsUjUNW5N0adyNk05NtakcXcfpp+05BM46v8ApZe01V1OVPZp3G5AadHYyS58ikEp5aa86laSlUm5S223fgj5qOx9WTqIcXREeESN/hsZd5W9haWkHKcucpP4sF4s1YPE3WVufN0KcvNx+PPoor2mQLGhaYq1dnj4tRl+lqv403/0Dgz564o18rbW9nicd+Tsf6W/6evtzqv/AKHV9T5hU07G1e82tpzXzfUvWXUuddOUrKyknLpOa+b7DrVODk3KT3b5tvqyzPbTi43FtmvGTIUafPdm4itkSMdjUZfRY6dMBe8hQ5goIEUEAFAAAAAAAAAAAAAAAgQMAElpEUiKVgAAUAAAAAAAAAAAAAAAAAAEYKCCM0Sjv1NYKTG4cvpXUl/gbr0ZyqWsv0lJvl7UZRtbywzuMVSjKNanJc13xfg/AwtKO5uMRkr3E3Sr2dWUeaco90vahWdPH5np8ZPv07S7ZqTT87XiuLVOVHfou46vLdNppp+BkTB5+0zlHaLVO529Ok/eji9RYCNZTr264avXh/WLMfLh4fqN8Vvp53TuIjZqr0qtGo6dWDjJdzPk3zMveraLRuF3DZNyNkNrucfX/Sy9pvkzYVv0svaah1OTPZCfWafrKadLavYjZCxjKUkkm2+mxDaPmc1p/BVchNVK7dG1jzctucvUjc4PAqXDcXvJdY0+9+07LVrW9pbecrTVOjBcl/0K6Ofl6+7Ty3EHStrRWtpBUbaC3b75etnVNQZ9z4rSwl6PSVVf5Gzzmcr5CToW/FRtvV1n7TjKVJJchtri8Kck9eRppUtube7NxCOxUtimdvex44rAAUOZC95ABQgwgDCDCApCkAoAAAAAAAAAAAAAACNQiKRFKwAAKAAAAAAAAAAAAAAAAAhQAAAAACEa3NQITG2ilKpQrRrUKkqVSPNSj1O5ad1XGu42mUl+cfKFTbZP2nT2tz5zgmWHQ5XCpmjvHdknL460v6e7UXLblOJ0vKY6vZVXxQbhvyl4jB6guca40a0XWtl83vR3a0uLHM2fHS2lFrnCXVGu0vJjJn4M6t3qx3vyJudnzml61NSuLFccO+Hejq84yhJwnFxku5mZjT1+Py6ZqxNZVM2Fb9LL2m9TNlVf5yXtFU5M9oadybjvORx2Lq3L46icIfezbo3yRSN2bW0t6tzUUKUW9+/wOz4nE0bX05rjqeLPraW9K2pcMFGMV1bNhk89Gl+Zs9qlTo5voiOhfNkzT00ctksrbY6n6b4qrXKCfM6lkL65yNbjrS2ivixXRG3/ADtao6lWbnKXVs+8IbEl6XE9PiurW8tEKey3PrFbFSBNvXrSIGAVBsBQBAgEAAAAAAAAgKAAAAAAEAoAAAAAAwRppTNRpRqKyAACFAAAAAAAAAAAAAAAIikKAAAAAAAAFCFBBolHc12V3d4+5Ve1quEl1Xc/aQjW5XDlxRkjVu7Iml9UWGT4ba7lG0uunC/iz9jOXz+k7PKUJzjGNG4a2VRL0WzEEqXPdPZrvXU7VpfXWSw7hQvP/G2a5bT+PH6+81Ew8HPwMmG3XhcbncBkcPX4Lmk+CT9CoviyRwdO3q3FVqnF9eb7j0BY3WC1NjG7evQvKUo+lRlynBv1eJjDP2tvY5m6trfhhQo1HFDUOG3qF7V6bR3hxGPxlGi1Oa45evuOQr3FG0pcdacYr5se9nE3uXjS9C2SnPvl3I4mo61xU4603JvvZds4uNlzzuzd5HJ172ThD81R/VXV+021Ol6jXTpKJ9UYl7vG4lcUdkS2NSDQDuxGoGAUioAwiiDcrIAKiMqADvAADvDAD2gAAUAAQoAEKAIEUgFAAAAEaaUajSjUVkAAEKAAAAAAAAABGU0soApCgRgAgoAKAAAAAKIMAAACCGmUEzWQMzEStjc3eOuo3NlXnRqxe6lF7GnKXt5krida4qc5ycpKPJNvvK0jTsi7dW/Ex2t1TD4U6SR9ox2NWxQ56Yq1jshdgikcoQAIApCgCkABAIAEAAKABAUEAAFEBSACgAAAAAAAAAAUEaaEUiKVlQAAAAAAAAABAygDSb7AwjUzlhCpGM4yuaalFrdNcS5M2ZvtO/L+O/tVL8aDF/bLJHaxpqzeHWTxdrQo1LOW1xCjBR3hLbm0u9Pb6mzrvZPgqOSy1XI39OE7KzjzVRJxnN9E9+T2W7+w7dksvSs+0yrir3aVjk7SnRqRl04nuo/bu4/WvA4/UMrbTFvh9JY6o5Sr3kK9zN8pSj5xbJ+3ZfVH1leJiy5Ywxh+bd4n8vn+3+XXO1u1trTVnmrW3o29P4PB8FKCit93z2Ru+1CztLXDabnbWtChKrbSdR06ai5vhp83t16v7T49s39Mf+Wh72b/ALUKc7nSmmb6jFzt4W/DOa5qLlCnsn/6X9gdnFadYJmf6/8Axtuz6ztLjR+p61e1oValK2k6c501Jwfm5vdN9OhteyK1trvVcqV3b0bin8Gm+GrBSW+8eezOT0DTna9nupruvFwo1qEoU5S5KT4JLl9ckjZdi/8ATCX9ln74gyWnpzzE/wDdOUstRYW/1GsHd6TxqpVbh26qU6cVJPi2T+L7mjqGucTQwmp7vH20m6EHGVNN7uKkk9vq3MjaSv8AEZPL5anYYSxssva8boVJLj8492uLomue2+3iYpzVze3mVubjIuTu51H53dbbSXLbbu222+oSvDifqzERqIiNxM77/wBWT9fZbGaav7a2paZxNxGtS4250Iprm1t0OA17jMVX0tjdUY2xjj3dTUKtCHKPNS5pdOTi+m26Z2btKzmLxWStKV9p22yk50eKNSrNLgW75c4sx7q3VN3qBUKEqFG0s7f9Fb0ui5bbv6uXcJcPCx3tFL1iY/rO/P7OcqWdp/odp3nwWh8Jdzt57za49vONbcXU4zstt7e61la0bmhSr0nCpvCpBSi/QfcztODytXDdkdG+o29vXnG4lHgrxco86j7k0XQWsrzMaloWFbG4yhCcZtzo0XGa2i3ybbDU5MsYs0RG43bvt0rJ3FLF67vK8bWhUo29/U/MSgnBwU2nHbp0+w7Br/TlK6y2LyGBowVrllCEI048MYz25cl0TXP6pHV9Yf0sy/8Aba342d+7JsvV/gxk6VenGtHFLz9Di6rijNtLw6Pn/WYc2e18WOuanmI1/f8A5cH2nvGY74Fp3G21vGVrTjK4rRpxU5y25Jy69Ob9q8Do59766rXt7WvLmfHWrTc5y8W3ufEju4Mf08cVnvP+WR9HSsbDszvczWxVle16Fy0vP0oy3TcFtu1v3s+2CeF1xj8ha1MDaY27t6XHSr20VHm99t9ku9dHv9RdGXdvYdlF/d3djTvqNO6fFQm9oz3dNc3s+je/TuODvtdbYyvYYTCWmIhcLhqzpPeTXTqkufr5leX9O+S9+iO/V5348fH/AA1djlpa3mp7ild21G4pqzlJRqwU0nxw57P2s5XEahwmXz8MJeaTxsKdao6SqUoJSi+ez5JPu7mjY9iP9LLn+wz/AB0zsmjr/F5OtlZYnB2NjmLWM3Qclxce+6335Nc+T9ohOXOst5mJnUR861+bHOrsRHF6ru8TacVSMakVSTe72kk0vb6Wx3LILBaBs7a1njKGUzFan5ypOrs4wXTlunst00tub25s6NHIXD1LDJ5FynXjdRq1t1s91JNrbu6bbHbO2Sxrzy1tmaKdWxuLeMY1Y84prflv600148w7WWJtbHiyT2mO/wCcw3uJudP67jWxlxiaGMyapudCtQS9Lb2Jb7eD35b9DHN9bVbO8r2ldcNWjUlTmvBp7M7h2P465raohklCUbW0hN1Kr5R3cXFLfx57/UcPkKFTUmtryljOCcru5qSo8UuFSS3e+/rSC4ZjFmvSJ+7Eb/T/AL5fbszoULnW1hQuaNOtSl5zihUipRe1OT5pnzz9GjT19c29OlThRV/wqnGKUUuLpt02OT7PMdd4/tLtrK6pONa38751Lml+blz38Oa+04/UTT7Rbtp7/wAY7f4wdW+ROp7dP+Zdy15m8dpzNQsKGmcRXjKhGrxToRT3ba25L1HQdTZilmbmlWpYy0x6pw4XC3ioqXPfd+syH2karucJn6dnRxuNuYu3jPjuKLlLduS23TXLkY21BlauZyDvattbW8nBR4LeDjHl37bvmJcXAx/draa/Hnf+HdbCyw2j9L2mYyuPp5HJ3y4qNGptwwW2/entsmt3tvu9jXjtQaW1NCtYZ3E2WLlwN0rmm1HZ+G+yaff3pk7SaNTK6RwOasourb0aLjV4efm21Hr7HFp+vY6bpvT+S1BdToY+lFunHinOb2jH1b+PqDOPHTLjnLktq25778d0xt3SwmenVdva5OnRlOCjUXFTqLmlL/NGRcTlsbeaIyGoJaaxMKtpVdONJUI8MuUObe39b7jFd5QlbXda2nKEpUpuDlB7xbT25PvR3zTP/uczv9qfupCHLzMdZrW3zuI/bbq2p81SzVWhUpYqzx6pRacbeCip7975Her1WWj9J4u7ssFbZGd1BSuLmtDiSbin125J78u7kYtO+0srq3RNlaUbyNC6x9eL81Tm+OKXJ7KS5rk+nNeoQ1ycXalK/wBt63+7i9cXmmclb2l9hqKtL2a2ureFNxgt1vv0S3T5cuu51YyDr/HYq70nYapsbGOPrXM1GpRitlLdS7um+8eqS3TMekly8O1Zxdt9u3dQAHaQAoEKRlAAAAAAC6lIihYQB9QRWk1GlGorIAAAAAAAAAAAAAH1sridpeUbqmoudGpGpFS6Np7rf7D5AJMb7OT1JnLvPZT8o3cKNOtwRhtRTS2XTq2zZ0LuvSvqV45OpVpTjNOo292nut/UfAgZrSta9MR2cpqbOXeoMl8PvKdCnV4FDalFqOy38W/E5LTOtcxgrT4FSVC6tN3tSrxbUd+uzTX2dDrQDFsGO1OiY7Oxao1jl8/bxtbh0be1TT8zQi1FtdN922/cbHTGcu9PZJ39lToVKrpuntWi3HZ7eDXgcWAsYMcU6Ijs5PFZy9xue/LNt5tXHHKbi0+B8W+6a3325+J8c5kqmXylbI1qFCjVrPinGjFqO+3XZt9TZANRjrFurXfw5jVWor3Ud1Rub6lb050qfm4qjFpNb7892zhwAUpWlemsahzD1FevS0dO+at/giqec4+F+c34t+u+3X1G307l7nBZWnkrSFGdampJKqm481s+jRx4CfSpqa67T5bjJXdS/wAjc31aMI1LirKrNQW0U5Pd7b93M5DT+or3CWeQtbSlbzhf01TqurFtpJSXo7NfrPrucOAtsdbV6ZjsAANuYttRXtDS9xp2FK3drcVPOTm4vzie8Xye+3zV3HDgBitK13qPLltLZ+805kJ31lSoVKk6TpNVotrZtPua5+ijRg85e4fNLK2fm/Pby3jNNwkpdU0nvt9fcjjAEnFSdzMefLd5m/nlMnXyFWjRo1K8uOcaKajv3tJtvn1695zem9bZrCWnwOm6N1ar4tK4i5KPqTTTS9XQ6yAl8NL16LRuHas/rvNZaylYpULK2ktpwt4tOS8G23y9mx1qzua9ndUrq2qypVqUlOE11TR8gDHhpjr01jUO7z7Tc7K2cI21hC4ceF3Cpvi9u2+2/wB3qOmwuasb2N3KXnKqqecbnz4pb78/rPkAmPBjxb6I1t3ep2l5mrLiqY3Dzl03lQm3+M69qbPXOfuaVe5trS3lShwJW9NxTW+/PdvmcSBtMfGxY53Wupc9pfVuX09GVKzqU6tvN7yoVk5Q38Vs00/Ycnle0TOXlnO0t6VrYQmtpSt4NS59dm3y+rmdOAS3Fw2t1zWNhzFjqK9s9NXeApUrd2t1U85OcovjT9Ho99vmru8ThwHNelbxq0B2vCa8y+Ox0MfVo2l/bU0lTjcwcnFLot0+i9Z1QBnJipljV425vVOp8pqKdP4bKnCjS/R0aUeGEX497bOEAC0pWlemsagAAbAAAAAAcgALuicgALuhuQBVBAZXTSjUaUajTIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhQAAAAAAAAAAAAAAAVECAbAoMq0I1EXQppAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADcAGVRFIuhTTIAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMGVRFIimmQABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAFAAEAADYAAAAAAAKAMGVRFIimmQABQABAAAAAAAANgACgACAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAACgAAAAAAAgAAgAAAACwAAAAAoAwZVEUiKaZAAFAAEAADQAAAABoAAUAATQAAAACgAAAAAAAAAAAAAAAgAAoAAgAAoAAAAAAAIAAAAAAAAAAAAAaAAEAAAAAAABoYDBFRFIilQAAQAAUAAQAAUAAAAAAAAAAAABAABQAAAAAAAAABAAAAAAAAUAAAAAAAAAAQAAUAAQAAUAAAABAAAAAAAAAABTYAEaga2exNwDTjTcbgAaiAACbgAVMbgAUm/MACkbAApNwAKTcAANwAKRsAAO8ACkbAAdw3AAdw3AApGwAJuXcAAO8ACgAARgAAABSMAANwAHcNwACKAAAAEG4AAbgANwAAG4AFAAIXYAFZmZ2//Z" alt="Murphy Projects" style="height:240px;width:auto;" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#ventures">Ventures</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#5c34393030331c31292e2c34252c2e3336393f282f723f3d">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Incorporated in Ontario, Canada</p>
+    <h1 class="hero-headline">Building ventures<br />that <em>teach,</em> equip,<br />and endure.</h1>
+    <p class="hero-sub">
+      Murphy Projects is the parent company behind a growing portfolio of education, retail, and digital ventures — built by a teacher, father, and entrepreneur.
+    </p>
+    <a href="#ventures" class="hero-cta">
+      Explore Ventures <span class="arrow">→</span>
+    </a>
+    <div class="hero-rule"></div>
+    <div class="hero-stat">
+      <div class="num">5</div>
+      <div class="label">Active Ventures</div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="section-divider"><span>Portfolio</span></div>
+
+  <!-- VENTURES -->
+  <section class="ventures" id="ventures">
+    <div class="ventures-header">
+      <h2>Our Ventures</h2>
+      <p>Each company is purpose-built — with its own brand, audience, and mission.</p>
+    </div>
+
+    <div class="ventures-grid">
+
+      <!-- Card 1: Colin Murphy Education -->
+      <div class="venture-card">
+        <div class="venture-index">01 — Education</div>
+        <span class="venture-icon">🎓</span>
+        <div class="venture-name">Colin Murphy<br/>Education Services</div>
+        <div class="venture-tagline">Teaching · Tutoring · Curriculum</div>
+        <p class="venture-desc">Contract instruction with the Ottawa Catholic School Board and Virtual High School, plus private tutoring services for high school students across Ontario.</p>
+        <a href="#" class="venture-link">Learn more →</a>
+      </div>
+
+      <!-- Card 2: Retriever Academy (FEATURED — tall) -->
+      <div class="venture-card featured">
+        <div class="venture-index">02 — Publishing</div>
+        <span class="venture-icon">📚</span>
+        <div class="venture-name">Retriever<br/>Academy</div>
+        <div class="venture-tagline">Labs Make Better Humans Than Humans Do</div>
+        <p class="venture-desc">A growing library of adult and children's books using Labrador Retrievers as teachers. Each title delivers real frameworks — on leadership, resilience, execution, and wisdom — through the lens of The Pack.</p>
+        <br/>
+        <p class="venture-desc">Adult titles include <em>Lead Like Winnie</em>, <em>Jesse's Laws</em>, and <em>Zoe's Playbook</em>. Pups series for ages 3–8 launches alongside the adult line.</p>
+        <a href="#" class="venture-link">Explore the Series →</a>
+      </div>
+
+      <!-- Card 3: Overland Trading Co. -->
+      <div class="venture-card">
+        <div class="venture-index">03 — Retail</div>
+        <span class="venture-icon">🏕</span>
+        <div class="venture-name">Overland<br/>Trading Co.</div>
+        <div class="venture-tagline">Apparel · Gear · Lifestyle</div>
+        <p class="venture-desc">A niche retail brand for the outdoors-minded. Curated apparel and gear for Canadians who explore, work, and build things.</p>
+        <a href="#" class="venture-link">Shop the store →</a>
+      </div>
+
+      <!-- Card 4: Lab Life Shop -->
+      <div class="venture-card">
+        <div class="venture-index">04 — Niche Retail</div>
+        <span class="venture-icon">🐾</span>
+        <div class="venture-name">Lab Life Shop</div>
+        <div class="venture-tagline">For Labrador Retriever Enthusiasts</div>
+        <p class="venture-desc">Products, gifts, and apparel celebrating the best breed on earth. Built for the community that already lives and breathes Lab life.</p>
+        <a href="#" class="venture-link">Visit the shop →</a>
+      </div>
+
+      <!-- Card 5: Digital Products -->
+      <div class="venture-card">
+        <div class="venture-index">05 — Digital</div>
+        <span class="venture-icon">⚡</span>
+        <div class="venture-name">Digital<br/>Products</div>
+        <div class="venture-tagline">PLR · Templates · Resources</div>
+        <p class="venture-desc">Customized educational and entrepreneurial digital products — planners, guides, and frameworks — delivered through our Entrepedia-powered storefronts.</p>
+        <a href="#" class="venture-link">Browse products →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="section-divider"><span>About</span></div>
+
+  <!-- ABOUT -->
+  <section class="about-strip" id="about">
+    <div class="about-left">
+      <h2>A portfolio built<br />on <em>purpose,</em><br />not just profit.</h2>
+    </div>
+    <div class="about-right">
+      <p><strong>Murphy Projects is the operating entity behind everything Colin Murphy builds.</strong> Based in Ontario, Canada, it exists to create businesses that are coherent, intentional, and built to last.</p>
+      <p>Each venture draws from real experience — the classroom, the trail, the lab with a tennis ball in its mouth. The goal isn't to scale fast. It's to build well.</p>
+      <p>Incorporated as <strong>17606656 Canada Inc.</strong>, Murphy Projects provides the legal and operational structure for ventures in education, publishing, retail, and digital products.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      <strong>Murphy Projects</strong>
+      17606656 Canada Inc. · Ontario, Canada
+    </div>
+    <div class="footer-right">
+      <a href="/cdn-cgi/l/email-protection#88e0ede4e4e7c8e5fdfaf8e0f1f8fae7e2edebfcfba6ebe9">Contact</a>
+      <a
